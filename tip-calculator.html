@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Tip Calculator</title>
+        
+        <link rel="stylesheet" href="C:\Users\ASUS\Documents\Codes\Frontend Codes\Tip Calculator\tip-calculator.css">
+        <script defer src="C:\Users\ASUS\Documents\Codes\Frontend Codes\Tip Calculator\tip-calculator.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div id="main-container">
+
+            <div id="cal-container">
+
+                <div id="cal-input">
+
+                    <div id="bill-sec">
+                        <p id="bill-label" class="label">Bill</p>
+                        <input id="bill-input" name="bill-input" class="input-fields" type="number" onkeyup="billAmount ()">
+                    </div>
+
+                    <div id="tips-sec"> 
+                        <p id="tips-label" class="label">Select Tip %</p>
+                        <button id="tips-button-01" class="tips-buttons" onclick="sum (this.id)">5 %</button>
+                        <button id="tips-button-02" class="tips-buttons" onclick="sum (this.id)">10 %</button>
+                        <button id="tips-button-03" class="tips-buttons" onclick="sum (this.id)">15 %</button>
+                        <br>
+                        <br>
+                        <button id="tips-button-04" class="tips-buttons" onclick="sum (this.id)">20 %</button>
+                        <button id="tips-button-05" class="tips-buttons" onclick="sum (this.id)">25 %</button>
+                        <input id="tips-button-06" class="tips-buttons" type="number" placeholder="Custom" onkeyup="csum ()">
+                    </div>
+
+                    <div id="nump-sec">
+                        <p id="nump-label" class="label">Number of People <span id="empty">Can't be zero or empty</span></p>
+                        <input id="nump-input" name="nump-input" class="input-fields" type="number" onkeyup="sum ()">
+                    </div>
+
+                </div>
+
+                <div id="cal-output">
+
+                    <div id="amount">
+                        <p id="amount-label" class="output-label">
+                            Tip Amount
+                            <br>
+                            <span class="sublabel">/ person</span>
+                        </p>
+                        <div class="output">
+                            <p id="amount-sign" class="dollar-sign">$</p>
+                            <p id="amount-sum" class="sum">0.00</p>
+                        </div>
+                    </div>
+
+                    <div id="total-amount">
+                        <p id="total-amount-label" class="output-label">
+                            Total
+                            <br>
+                            <span class="sublabel">/ person</span>
+                        </p>
+                        <div class="output">
+                            <p id="total-amount-sign" class="dollar-sign">$</p>
+                            <p id="total-amount-sum" class="sum">0.00</p>
+                        </div>
+                    </div>
+
+                    <button id="reset-button" onclick="reset ()">RESET</button>
+
+                </div>
+                
+            </div>
+        </div>
+
+    </body>
+
+</html>
