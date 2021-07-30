@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Tip Calculator</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+      
+       <script>
+         function billAmount () {
+
+    const b = document.getElementById("bill-input").value;
+    const a = document.getElementById("amount-sum");
+
+
+    if (b != '') {
+        a.innerHTML = `${b}`;
+    }
+    else {
+        a.innerHTML = "0.00";
+    }
+};
+
+function sum (i) {
+
+    const a = document.getElementById("amount-sum");
+    const t = document.getElementById("total-amount-sum");
+    const b = document.getElementById("bill-input").value;
+    const n = document.getElementById("nump-input").value;
+
+    
+    if (b != '') {
+
+        if (n == 0 || n == '') {
+
+            const e = document.getElementById("empty");
+            const nf = document.getElementById("nump-input");
+
+            e.style.display = "inline";
+            nf.style.borderColor = "red";
+
+
+        }
+
+        else {
+
+            switch (i) {
+                case "tips-button-01":
+                    a.innerHTML = `${parseFloat((b*(5/100)/n)).toFixed(2)}`;
+                    t.innerHTML = `${parseFloat((b/n)+(b*(5/100)/n)).toFixed(2)}`;
+                    break;
+
+                case "tips-button-02":
+                    a.innerHTML = `${parseFloat((b*(10/100)/n)).toFixed(2)}`;
+                    t.innerHTML = `${parseFloat((b/n)+(b*(10/100)/n)).toFixed(2)}`;
+                    break;
+
+                case "tips-button-03":
+                    a.innerHTML = `${parseFloat((b*(15/100)/n)).toFixed(2)}`;
+                    t.innerHTML = `${parseFloat((b/n)+(b*(15/100)/n)).toFixed(2)}`;
+                    break;
+
+                case "tips-button-04":
+                    a.innerHTML = `${parseFloat((b*(20/100)/n)).toFixed(2)}`;
+                    t.innerHTML = `${parseFloat((b/n)+(b*(20/100)/n)).toFixed(2)}`;
+                    break;
+
+                case "tips-button-05":
+                    a.innerHTML = `${parseFloat((b*(25/100)/n)).toFixed(2)}`;
+                    t.innerHTML = `${parseFloat((b/n)+(b*(25/100)/n)).toFixed(2)}`;
+                    break;
+
+            }
+
+        }
+
+    }
+    else {
+        
+        a.innerHTML = "0.00";
+    }
+
+};
+
+function csum () {
+
+    const a = document.getElementById("amount-sum");
+    const t = document.getElementById("total-amount-sum");
+    const b = document.getElementById("bill-input").value;
+    const n = document.getElementById("nump-input").value;
+
+    const c = document.getElementById("tips-button-06").value;
+
+    a.innerHTML = `${parseFloat((b*(c/100)/n)).toFixed(2)}`;
+    t.innerHTML = `${parseFloat((b/n)+(b*(c/100)/n)).toFixed(2)}`;
+
+}
+
+function reset () {
+
+    const am = document.getElementById("amount-sum");
+    const tm = document.getElementById("total-amount-sum");
+
+    am.innerHTML = "0.00";
+    tm.innerHTML = "0.00";
+
+    $("input").val("");
+
+};
+       </script>
+      
+       <style>
+         html, body {
+    height: 100%;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background-color: #c5e4e7;
+    
+}
+
+#cal-container {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+#cal-input {
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.label {
+    color: #6e7e7e;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#empty {
+    display: none;
+    margin-left: 30px;
+    color: red;
+}
+
+.input-fields {
+    width: 100%;
+    height: 20px;
+    background-color: #f3f8fb;
+    border: 2px solid #f3f8fb;
+    text-align: right;
+    font-family: 'Merriweather Sans', sans-serif;
+    background-image: url("https://www.drive.google.com/uc?export=view&id=16fzOqVboN64RxcpJ0sW1AOMefg2U7Yyz");
+    background-repeat: no-repeat;
+    background-position-y: 2px;
+    background-position-x: 2px;
+}
+
+#nump-input {
+    background-image: url("https://www.drive.google.com/uc?export=view&id=13SZB82vqoL9yXvQSAFhJX2vkFphFXgG_");
+    background-repeat: no-repeat;
+    background-position-y: 2px;
+    background-position-x: 2px;
+}
+
+
+.input-fields:focus {
+    outline: none;
+    border: 2px solid #87f1e5;
+    text-align: right;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.input-fields::placeholder {
+    text-align: left;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tips-buttons {
+    width: 80px;
+    margin-left: 10px;
+    padding: 8px;
+    color: white;
+    background-color: #00474b;
+    border: 1px solid #00474b;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Merriweather Sans', sans-serif;
+    transition: 0.3s ease-in;
+}
+
+.tips-buttons:hover {
+    border: 1px solid #9fe8df;
+    background-color: #9fe8df;
+    color: black;
+}
+
+#tips-button-01, #tips-button-04 {
+    margin-left: 0px;
+}
+
+#tips-button-06 {
+    width: 63px;
+    background-color: silver;
+    border:1px solid silver;
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+#tips-button-06:hover {
+    border: 1px solid #26c2ad;
+    background-color: #26c2ad;
+}
+
+#tips-button-06:focus {
+    border: 1px solid #26c2ad;
+    background-color: #f3f8fb;
+    color: black;
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+    outline: none;
+}
+
+#cal-output {
+    width: 20vw;
+    height: 35vh;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #00474b;
+    border: 2px solid #00474b;
+    border-radius: 10px;
+}
+
+#amount, #total-amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.output-label {
+    color: white;
+    font-size: 10px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.sublabel {
+    color: silver;
+    font-size: 8px;
+}
+
+.dollar-sign {
+    margin-right: 5px;
+    color: #26c2ad;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.sum {
+    color: #26c2ad;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.output {
+    display: flex;
+}
+
+#reset-button {
+    width: 100%;
+    margin-top: 80px;
+    padding: 10px;
+    background-color: #26c2ad;
+    border: 2px solid #26c2ad;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s ease-in;
+}
+
+#reset-button:hover {
+    border: 2px solid #9fe8df;
+    background-color: #9fe8df;
+}
+       </style>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div id="main-container">
+
+            <div id="cal-container">
+
+                <div id="cal-input">
+
+                    <div id="bill-sec">
+                        <p id="bill-label" class="label">Bill</p>
+                        <input id="bill-input" name="bill-input" class="input-fields" type="number" onkeyup="billAmount ()">
+                    </div>
+
+                    <div id="tips-sec"> 
+                        <p id="tips-label" class="label">Select Tip %</p>
+                        <button id="tips-button-01" class="tips-buttons" onclick="sum (this.id)">5 %</button>
+                        <button id="tips-button-02" class="tips-buttons" onclick="sum (this.id)">10 %</button>
+                        <button id="tips-button-03" class="tips-buttons" onclick="sum (this.id)">15 %</button>
+                        <br>
+                        <br>
+                        <button id="tips-button-04" class="tips-buttons" onclick="sum (this.id)">20 %</button>
+                        <button id="tips-button-05" class="tips-buttons" onclick="sum (this.id)">25 %</button>
+                        <input id="tips-button-06" class="tips-buttons" type="number" placeholder="Custom" onkeyup="csum ()">
+                    </div>
+
+                    <div id="nump-sec">
+                        <p id="nump-label" class="label">Number of People <span id="empty">Can't be zero or empty</span></p>
+                        <input id="nump-input" name="nump-input" class="input-fields" type="number" onkeyup="sum ()">
+                    </div>
+
+                </div>
+
+                <div id="cal-output">
+
+                    <div id="amount">
+                        <p id="amount-label" class="output-label">
+                            Tip Amount
+                            <br>
+                            <span class="sublabel">/ person</span>
+                        </p>
+                        <div class="output">
+                            <p id="amount-sign" class="dollar-sign">$</p>
+                            <p id="amount-sum" class="sum">0.00</p>
+                        </div>
+                    </div>
+
+                    <div id="total-amount">
+                        <p id="total-amount-label" class="output-label">
+                            Total
+                            <br>
+                            <span class="sublabel">/ person</span>
+                        </p>
+                        <div class="output">
+                            <p id="total-amount-sign" class="dollar-sign">$</p>
+                            <p id="total-amount-sum" class="sum">0.00</p>
+                        </div>
+                    </div>
+
+                    <button id="reset-button" onclick="reset ()">RESET</button>
+
+                </div>
+                
+            </div>
+        </div>
+
+    </body>
+
+</html>
